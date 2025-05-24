@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solidarity Project - Suomalainen taideworkshop</title>
+    <meta name="description" content="Solidarity Project on suomalainen taideworkshop, joka kannustaa luovuuteen, leikkisyyteen ja itseilmaisuun. Liity mukaan!">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header id="header" class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <!-- TODO: Replace with actual logo SVG -->
+                <a href="#hero" aria-label="Solidarity Project – Etusivu">
+                    <img src="logo-placeholder.svg" alt="Solidarity Project – logo placeholder" class="header__logo-img">
+                </a>
+            </div>
+            <nav class="header__nav" aria-label="Päänavigaatio">
+                <button class="header__burger" aria-label="Avaa navigaatio" aria-expanded="false">
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                </button>
+                <ul class="header__nav-list">
+                    <li><a href="#about" class="header__nav-link">Tietoa</a></li>
+                    <li><a href="#values" class="header__nav-link">Arvot</a></li>
+                    <li><a href="#workshops" class="header__nav-link">Työpajat</a></li>
+                    <li><a href="#team" class="header__nav-link">Tiimi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Carousel Section -->
+        <section id="hero" class="hero" aria-roledescription="carousel" aria-label="Pääkuvat">
+            <div class="carousel" data-carousel>
+                <div class="carousel__track" data-carousel-track>
+                    <!-- TODO: Replace with actual artwork images -->
+                    <div class="carousel__slide slide" data-slide>
+                        <picture>
+                            <img src="paintings/p1.jpg" alt="Taideworkshop kuva 1" class="carousel__image">
+                        </picture>
+                        <div class="carousel__content">
+                            <p class="carousel__subtitle">By Fons Heijnsbroek</p>
+                        </div>
+                    </div>
+                    <div class="carousel__slide slide" data-slide>
+                        <picture>
+                            <img src="paintings/p2.jpg" alt="Taideworkshop kuva 2" class="carousel__image">
+                        </picture>
+                        <div class="carousel__content">
+                            <p class="carousel__subtitle">By Maija Poppanen</p>
+                        </div>
+                    </div>
+                    <div class="carousel__slide slide" data-slide>
+                        <picture>
+                            <img src="paintings/p3.jpg" alt="Taideworkshop kuva 2" class="carousel__image">
+                        </picture>
+                        <div class="carousel__content">
+                            <p class="carousel__subtitle">By Mikko Mallikas</p>
+                        </div>
+                    </div>
+                    <div class="carousel__slide slide" data-slide>
+                        <picture>
+                            <img src="paintings/p3.jpg" alt="Taideworkshop kuva 2" class="carousel__image">
+                        </picture>
+                        <div class="carousel__content">
+                            <p class="carousel__subtitle">By Kiira Korpi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Controls -->
+                <button class="carousel__btn carousel__btn--prev" data-carousel-prev aria-label="Edellinen kuva">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="carousel__btn carousel__btn--next" data-carousel-next aria-label="Seuraava kuva">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Dot Indicators -->
+                <div class="carousel__indicators" data-carousel-indicators aria-label="Kuvavalitsin">
+                    <button class="carousel__dot carousel__dot--active" data-carousel-dot="0" aria-label="Kuva 1"></button>
+                    <button class="carousel__dot" data-carousel-dot="1" aria-label="Kuva 2"></button>
+                    <button class="carousel__dot" data-carousel-dot="2" aria-label="Kuva 3"></button>
+                    <button class="carousel__dot" data-carousel-dot="3" aria-label="Kuva 4"></button>
+                </div>
+            </div>
+            <div class="hero__scroll-indicator" aria-hidden="true">
+                <span class="hero__scroll-text">Vieritä alas</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 13L12 18L17 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about__content">
+                    <h2 class="about__title">Tietoa projektista</h2>
+                    <!-- TODO: Replace with actual project description -->
+                    <p class="about__text lead">
+                        Solidarity Project on suomalainen taideworkshop, joka yhdistää luovuuden, leikkisyyden ja itseilmaisun. 
+                        Uskomme, että jokainen on luova – tarvitaan vain oikea ympäristö ja rohkeus tarttua kynään tai siveltimeen.
+                    </p>
+                    <p class="about__text">
+                        Työpajoissamme luomme turvallisen tilan, jossa voit kokeilla, erehtyä ja löytää oman tapasi tehdä taidetta. 
+                        Ei ole yhtä oikeaa tapaa – on vain sinun tapasi, ja se on arvokas.
+                    </p>
+                </div>
+                
+                <!-- Decorative paint splatters -->
+                <svg class="about__splatter about__splatter--1 blob--rotate" style="--deg: 15deg;" aria-hidden="true">
+                    <use href="#paint-splatter-1"></use>
+                </svg>
+                <svg class="about__splatter about__splatter--2 blob--rotate" style="--deg: -25deg;" aria-hidden="true">
+                    <use href="#paint-splatter-2"></use>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Brand Values Section -->
+        <section id="values" class="values">
+            <div class="container">
+                <h2 class="values__title">Meidän arvomme</h2>
+                <div class="values__grid">
+                    <article class="values__card">
+                        <div class="values__icon" aria-hidden="true">🎨</div>
+                        <blockquote class="values__quote">
+                            <p>Luovuus on rajaton leikkikenttä, jossa jokainen saa kokeilla, erehtyä ja löytää oman tapansa tehdä taidetta. Me uskomme, että jokainen on luova – tarvitaan vain oikea ympäristö ja rohkeus tarttua kynään tai siveltimeen! Tässä hankkeessa tuemme uusia ideoita, yllätyksiä ja ennakkoluulotonta taiteen tekemistä.</p>
+                            <cite class="values__cite">Luovuus</cite>
+                        </blockquote>
+                    </article>
+                    
+                    <article class="values__card">
+                        <div class="values__icon" aria-hidden="true">🤹‍♂️</div>
+                        <blockquote class="values__quote">
+                            <p>Taide ei ole vakavaa – se on hauskaa, inspiroivaa ja täynnä iloa! Haluamme kannustaa kokeilemaan, hulluttelemaan ja unohtamaan "oikeat" ja "väärät" tavat tehdä. Meidän työpajoissamme kaikki on mahdollista: värit leviävät, muodot muuttuvat ja ideat syntyvät hetkessä. Tärkeintä on tekemisen ilo!</p>
+                            <cite class="values__cite">Leikkisyys</cite>
+                        </blockquote>
+                    </article>
+                    
+                    <article class="values__card">
+                        <div class="values__icon" aria-hidden="true">✨</div>
+                        <blockquote class="values__quote">
+                            <p>Jokaisella on oma tarina kerrottavanaan, oma tapa nähdä maailma ja ilmaista itseään. Luomme turvallisen tilan, jossa jokainen voi olla rohkeasti oma itsensä ja tuoda esiin oman näkökulmansa. Ei ole yhtä oikeaa tapaa tehdä taidetta – on vain sinun tapasi, ja se on arvokas.</p>
+                            <cite class="values__cite">Itseilmaisu</cite>
+                        </blockquote>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workshops Section -->
+        <section id="workshops" class="workshops">
+            <div class="container">
+                <h2 class="workshops__title">Meidän työpajat</h2>
+                <div class="workshops__grid">
+                    <!-- TODO: Replace with actual workshop images and descriptions -->
+                    <article class="workshops__card">
+                        <div class="workshops__image-wrapper">
+                            <img src="https://picsum.photos/400/300?random=5" alt="Placeholder – Maalausworkshop" class="workshops__image" loading="lazy">
+                        </div>
+                        <div class="workshops__content">
+                            <h3 class="workshops__card-title">Maalausworkshop</h3>
+                            <p class="workshops__card-text">Tutustu värien maailmaan ja löydä oma ilmaisusi siveltimen avulla.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="workshops__card">
+                        <div class="workshops__image-wrapper">
+                            <img src="https://picsum.photos/400/300?random=6" alt="Placeholder – Keramiikkaworkshop" class="workshops__image" loading="lazy">
+                        </div>
+                        <div class="workshops__content">
+                            <h3 class="workshops__card-title">Keramiikkaworkshop</h3>
+                            <p class="workshops__card-text">Muotoile savesta uniikkeja teoksia omien käsiesi avulla.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="workshops__card">
+                        <div class="workshops__image-wrapper">
+                            <img src="https://picsum.photos/400/300?random=7" alt="Placeholder – Kollaasi ja mixed media" class="workshops__image" loading="lazy">
+                        </div>
+                        <div class="workshops__content">
+                            <h3 class="workshops__card-title">Kollaasi & Mixed Media</h3>
+                            <p class="workshops__card-text">Yhdistele erilaisia materiaaleja ja tekniikoita rohkeasti.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="team">
+            <div class="container">
+                <h2 class="team__title">Tapaa tiimimme</h2>
+                <div class="team__grid">
+                    <!-- TODO: Replace with actual team member photos and information -->
+                    <article class="team__member">
+                        <div class="team__avatar" style="background-color: var(--pink-mid);" aria-hidden="true">
+                            <span class="team__initials">AK</span>
+                        </div>
+                        <h3 class="team__member-name">Anna Korhonen</h3>
+                        <p class="team__member-role">Perustaja & Taiteellinen johtaja</p>
+                    </article>
+                    
+                    <article class="team__member">
+                        <div class="team__avatar" style="background-color: var(--blue-mist);" aria-hidden="true">
+                            <span class="team__initials">ML</span>
+                        </div>
+                        <h3 class="team__member-name">Mikael Lindström</h3>
+                        <p class="team__member-role">Workshop-ohjaaja</p>
+                    </article>
+                    
+                    <article class="team__member">
+                        <div class="team__avatar" style="background-color: var(--green-light);" aria-hidden="true">
+                            <span class="team__initials">SV</span>
+                        </div>
+                        <h3 class="team__member-name">Sofia Virtanen</h3>
+                        <p class="team__member-role">Yhteisömanageri</p>
+                    </article>
+                    
+                    <article class="team__member">
+                        <div class="team__avatar" style="background-color: var(--fuchsia);" aria-hidden="true">
+                            <span class="team__initials">JH</span>
+                        </div>
+                        <h3 class="team__member-name">Jukka Hakala</h3>
+                        <p class="team__member-role">Keramiikka-asiantuntija</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__logo">
+                    <!-- TODO: Replace with actual logo SVG -->
+                    <img src="logo-placeholder.svg" alt="Solidarity Project – logo placeholder" class="footer__logo-img">
+                </div>
+                <div class="footer__info">
+                    <p class="footer__copyright">&copy; 2024 Solidarity Project. Kaikki oikeudet pidätetään.</p>
+                </div>
+                <div class="footer__social">
+                    <!-- TODO: Add actual social media links -->
+                    <a href="#" class="footer__social-link" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="Facebook">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="YouTube">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" stroke="currentColor" stroke-width="2"/>
+                            <polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SVG Definitions for reusable shapes -->
+    <svg style="display: none;" aria-hidden="true">
+        <defs>
+            <g id="paint-splatter-1">
+                <path d="M50 10 C70 15, 85 35, 80 55 C75 75, 55 85, 35 80 C15 75, 5 55, 10 35 C15 15, 35 5, 50 10 Z" fill="var(--pink-light)" opacity="0.8"/>
+                <circle cx="25" cy="30" r="8" fill="var(--pink-mid)" opacity="0.6"/>
+                <circle cx="65" cy="60" r="5" fill="var(--fuchsia)" opacity="0.7"/>
+            </g>
+            <g id="paint-splatter-2">
+                <path d="M40 5 C65 10, 85 30, 85 50 C85 70, 65 85, 45 85 C25 85, 5 65, 5 45 C5 25, 25 5, 40 5 Z" fill="var(--green-light)" opacity="0.8"/>
+                <circle cx="60" cy="25" r="6" fill="var(--green-dark)" opacity="0.6"/>
+                <circle cx="30" cy="65" r="4" fill="var(--blue-mist)" opacity="0.7"/>
+            </g>
+        </defs>
+    </svg>
+
+    <script src="carousel.js"></script>
+</body>
+</html>
