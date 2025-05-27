@@ -1,12 +1,12 @@
 /**
- * Vanilla JS Carousel for Solidarity Project
- * Features: Autoplay, swipe/touch support, keyboard navigation, accessibility
+ * Vanilla JS Card Deck for Solidarity Project
+ * Features: Card deck shuffling, autoplay, swipe support, keyboard navigation, accessibility
  */
 
-class Carousel {
+class CardDeck {
   constructor(element) {
     this.carousel = element;
-    this.track = this.carousel.querySelector('[data-carousel-track]');
+    this.container = this.carousel.querySelector('[data-carousel-track]');
     this.slides = Array.from(this.carousel.querySelectorAll('.slide'));
     this.prevBtn = this.carousel.querySelector('[data-carousel-prev]');
     this.nextBtn = this.carousel.querySelector('[data-carousel-next]');
@@ -18,6 +18,7 @@ class Carousel {
     this.isPlaying = true;
     this.autoplayInterval = null;
     this.autoplayDelay = 4000; // 4 seconds
+    this.isAnimating = false;
     
     // Touch/swipe properties
     this.touchStartX = 0;
@@ -31,7 +32,7 @@ class Carousel {
     if (this.totalSlides === 0) return;
     
     this.setupEventListeners();
-    this.updateSlidePosition();
+    this.updateCardPositions();
     this.updateIndicators();
     this.startAutoplay();
     
@@ -65,18 +66,18 @@ class Carousel {
     this.carousel.addEventListener('focusout', () => this.resumeAutoplay());
     
     // Touch/swipe support
-    this.track.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
-    this.track.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: true });
-    this.track.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
+    this.container.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
+    this.container.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: true });
+    this.container.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
     
     // Mouse drag support (optional enhancement)
-    this.track.addEventListener('mousedown', (e) => this.handleMouseDown(e));
-    this.track.addEventListener('mousemove', (e) => this.handleMouseMove(e));
-    this.track.addEventListener('mouseup', (e) => this.handleMouseUp(e));
-    this.track.addEventListener('mouseleave', (e) => this.handleMouseUp(e));
+    this.container.addEventListener('mousedown', (e) => this.handleMouseDown(e));
+    this.container.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+    this.container.addEventListener('mouseup', (e) => this.handleMouseUp(e));
+    this.container.addEventListener('mouseleave', (e) => this.handleMouseUp(e));
     
     // Prevent context menu on long press
-    this.track.addEventListener('contextmenu', (e) => {
+    this.container.addEventListener('contextmenu', (e) => {
       if (this.isDragging) e.preventDefault();
     });
     
@@ -90,39 +91,85 @@ class Carousel {
     });
   }
   
-  // Slide navigation methods
+  // Card deck navigation methods
   nextSlide() {
+    if (this.isAnimating) return;
+    
+    this.isAnimating = true;
+    
+    // Update current slide index
     this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-    this.updateSlidePosition();
+    
+    // Animate and update positions
+    this.updateCardPositions();
     this.updateIndicators();
     this.updateAriaLabels();
+    
+    setTimeout(() => {
+      this.isAnimating = false;
+    }, 600);
   }
   
   prevSlide() {
+    if (this.isAnimating) return;
+    
+    this.isAnimating = true;
+    
+    // Update current slide index
     this.currentSlide = this.currentSlide === 0 ? this.totalSlides - 1 : this.currentSlide - 1;
-    this.updateSlidePosition();
+    
+    // Animate and update positions
+    this.updateCardPositions();
+    this.updateIndicators();
+    this.updateAriaLabels();
+    
+    setTimeout(() => {
+      this.isAnimating = false;
+    }, 600);
+  }
+  
+  goToSlide(targetIndex) {
+    if (this.isAnimating || targetIndex === this.currentSlide) return;
+    
+    this.currentSlide = targetIndex;
+    this.updateCardPositions();
     this.updateIndicators();
     this.updateAriaLabels();
   }
   
-  goToSlide(index) {
-    if (index >= 0 && index < this.totalSlides) {
-      this.currentSlide = index;
-      this.updateSlidePosition();
-      this.updateIndicators();
-      this.updateAriaLabels();
-    }
-  }
-  
-  updateSlidePosition() {
-    const translateX = -this.currentSlide * 100;
-    this.track.style.transform = `translateX(${translateX}%)`;
+  updateCardPositions() {
+    // Define positions for each stack level
+    const positions = [
+      { z: 4, y: 0, rotation: 0, scale: 1, opacity: 1 },
+      { z: 3, y: -8, rotation: -2, scale: 0.98, opacity: 1 },
+      { z: 2, y: -16, rotation: 1, scale: 0.96, opacity: 1 },
+      { z: 1, y: -24, rotation: -1, scale: 0.94, opacity: 1 }
+    ];
+    
+    this.slides.forEach((slide, index) => {
+      // Calculate which position this card should be in
+      const positionIndex = (index - this.currentSlide + this.totalSlides) % this.totalSlides;
+      
+      if (positionIndex < positions.length) {
+        const pos = positions[positionIndex];
+        slide.style.zIndex = pos.z;
+        slide.style.transform = `translateY(${pos.y}px) rotate(${pos.rotation}deg) scale(${pos.scale})`;
+        slide.style.opacity = pos.opacity;
+        slide.style.transition = 'all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+      } else {
+        // Cards beyond the 4th position are hidden behind
+        slide.style.zIndex = 0;
+        slide.style.transform = `translateY(-32px) rotate(${Math.random() * 6 - 3}deg) scale(0.9)`;
+        slide.style.opacity = 0;
+        slide.style.transition = 'all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+      }
+    });
   }
   
   updateIndicators() {
     this.dots.forEach((dot, index) => {
       const isActive = index === this.currentSlide;
-      dot.classList.toggle('carousel__dot--active', isActive);
+      dot.classList.toggle('card-deck__dot--active', isActive);
       dot.setAttribute('aria-pressed', isActive.toString());
     });
   }
@@ -140,7 +187,7 @@ class Carousel {
     });
     
     // Update carousel aria-label
-    this.carousel.setAttribute('aria-label', `Kuva ${this.currentSlide + 1}/${this.totalSlides}`);
+    this.carousel.setAttribute('aria-label', `Kortti ${this.currentSlide + 1}/${this.totalSlides}`);
   }
   
   // Autoplay methods
@@ -244,7 +291,7 @@ class Carousel {
     e.preventDefault();
     this.isDragging = true;
     this.touchStartX = e.clientX;
-    this.track.style.cursor = 'grabbing';
+    this.container.style.cursor = 'grabbing';
     this.pauseAutoplay();
   }
   
@@ -258,7 +305,7 @@ class Carousel {
     if (!this.isDragging) return;
     
     this.isDragging = false;
-    this.track.style.cursor = '';
+    this.container.style.cursor = '';
     
     if (this.touchStartX && this.touchEndX) {
       const swipeThreshold = 50;
@@ -394,10 +441,10 @@ function initSmoothScrolling() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize carousel
+  // Initialize card deck
   const carouselElement = document.querySelector('[data-carousel]');
   if (carouselElement) {
-    new Carousel(carouselElement);
+    new CardDeck(carouselElement);
   }
   
   // Initialize mobile navigation
@@ -415,8 +462,8 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   // Disable autoplay for users who prefer reduced motion
   document.addEventListener('DOMContentLoaded', () => {
     const carouselElement = document.querySelector('[data-carousel]');
-    if (carouselElement && carouselElement.carousel) {
-      carouselElement.carousel.stopAutoplay();
+    if (carouselElement && carouselElement.cardDeck) {
+      carouselElement.cardDeck.stopAutoplay();
     }
   });
 }

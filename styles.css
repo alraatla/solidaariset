@@ -350,179 +350,238 @@ p {
 }
 
 /* ========================================
-   HERO/CAROUSEL
+   HERO/CARD DECK
    ======================================== */
 
 .hero {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.carousel {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.carousel__track {
+  padding: calc(var(--header-height) + var(--space-xl)) 0 var(--space-xxl);
+  background: linear-gradient(135deg, var(--cream) 0%, var(--pink-light) 100%);
+  min-height: 100vh;
   display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform var(--transition);
+  align-items: center;
 }
 
-.carousel__slide {
+.hero__content {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--green-dark);
+  margin-bottom: var(--space-xs);
+  text-shadow: 2px 2px 0px var(--white);
+}
+
+.hero__subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--fuchsia);
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Card Deck Styles */
+.card-deck {
   position: relative;
-  flex: 0 0 100%;
-  width: 100%;
-  height: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  height: 700px;
+  perspective: 1000px;
 }
 
-.carousel__image {
+.card-deck__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.card-deck__card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transform-origin: center center;
+  overflow: hidden;
+  /* Transitions are now set in JavaScript */
+}
+
+.card-deck__image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 75%;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.card-deck__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform var(--transition);
 }
 
-.carousel__content {
+/* Hover effects for individual cards */
+.card-deck__card:hover .card-deck__image {
+  transform: scale(1.05);
+}
+
+.card-deck__card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-deck__info {
   position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: var(--white);
-  z-index: 2;
-  max-width: 800px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: var(--space-md);
+  background: var(--white);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 }
 
-.carousel__content::before {
-  content: '';
+.card-deck__artist {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--green-dark);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Card Deck Controls */
+.card-deck__controls {
   position: absolute;
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: var(--radius-lg);
-  z-index: -1;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: calc(var(--space-xxl) * 5);
+  z-index: 10;
+  pointer-events: none;
 }
 
-.carousel__title {
-  font-size: clamp(2rem, 5vw, 4rem);
-  margin-bottom: var(--space-sm);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.carousel__subtitle {
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  margin-bottom: 0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.carousel__btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+.card-deck__btn {
+  pointer-events: all;
   background: rgba(255, 255, 255, 0.9);
-  border: none;
+  border: 2px solid var(--fuchsia);
   border-radius: var(--radius-full);
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition);
-  z-index: 3;
+  color: var(--fuchsia);
+  backdrop-filter: blur(10px);
 }
 
-.carousel__btn:hover {
-  background: var(--white);
-  transform: translateY(-50%) scale(1.1);
+.card-deck__btn:hover {
+  background: var(--fuchsia);
+  color: var(--white);
+  transform: scale(1.1);
+  box-shadow: var(--hover-shadow);
 }
 
-.carousel__btn--prev {
-  left: var(--space-md);
+.card-deck__btn:active {
+  transform: scale(0.95);
 }
 
-.carousel__btn--next {
-  right: var(--space-md);
-}
-
-.carousel__indicators {
+/* Card Deck Indicators */
+.card-deck__indicators {
   position: absolute;
-  bottom: var(--space-lg);
+  bottom: -80px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: var(--space-xs);
-  z-index: 3;
+  gap: var(--space-sm);
+  z-index: 5;
 }
 
-.carousel__dot {
-  width: 12px;
-  height: 12px;
+.card-deck__dot {
+  width: 16px;
+  height: 16px;
   border-radius: var(--radius-full);
-  border: none;
-  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid var(--fuchsia);
+  background: transparent;
   cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+}
+
+.card-deck__dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--fuchsia);
+  opacity: 0;
   transition: all var(--transition);
 }
 
-.carousel__dot--active,
-.carousel__dot:hover {
-  background: var(--white);
+.card-deck__dot--active::before,
+.card-deck__dot:hover::before {
+  opacity: 1;
+}
+
+.card-deck__dot--active {
+  background: var(--fuchsia);
   transform: scale(1.2);
 }
 
-.hero__scroll-indicator {
-  position: absolute;
-  bottom: var(--space-md);
-  right: var(--space-md);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-xs);
-  color: var(--white);
-  animation: bounce 2s infinite;
+.card-deck__dot--active::before {
+  background: var(--white);
 }
 
-.hero__scroll-text {
-  font-size: 0.875rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .carousel__btn {
+  .hero {
+    padding: calc(var(--header-height) + var(--space-lg)) 0 var(--space-xl);
+    min-height: auto;
+  }
+  
+  .card-deck {
+    max-width: 400px;
+    height: 520px;
+  }
+  
+  .card-deck__controls {
+    gap: calc(var(--space-xxl) * 6);
+  }
+  
+  .card-deck__btn {
     width: 40px;
     height: 40px;
   }
   
-  .carousel__btn--prev {
-    left: var(--space-sm);
+  .card-deck__indicators {
+    bottom: -70px;
   }
   
-  .carousel__btn--next {
-    right: var(--space-sm);
+  .hero__content {
+    margin-bottom: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .card-deck {
+    max-width: 320px;
+    height: 450px;
   }
   
-  .hero__scroll-indicator {
-    bottom: var(--space-sm);
-    right: var(--space-sm);
+  .card-deck__controls {
+    gap: calc(var(--space-lg) * 6);
   }
 }
 
@@ -763,18 +822,16 @@ p {
   margin-bottom: var(--space-xl);
 }
 
-.team__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-lg);
+.team__picturespace {
+  display: flex;
 }
 
-.team__member {
+.team__picture {
   text-align: center;
   transition: transform var(--transition);
 }
 
-.team__member:hover {
+.team__picture:hover {
   transform: translateY(-5px);
 }
 
@@ -825,10 +882,6 @@ p {
     padding: var(--space-xl) 0;
   }
   
-  .team__grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-md);
-  }
   
   .team__avatar {
     width: 100px;

@@ -36,70 +36,73 @@
     </header>
 
     <main>
-        <!-- Hero Carousel Section -->
-        <section id="hero" class="hero" aria-roledescription="carousel" aria-label="Pääkuvat">
-            <div class="carousel" data-carousel>
-                <div class="carousel__track" data-carousel-track>
-                    <!-- TODO: Replace with actual artwork images -->
-                    <div class="carousel__slide slide" data-slide>
-                        <picture>
-                            <img src="paintings/p1.jpg" alt="Taideworkshop kuva 1" class="carousel__image">
-                        </picture>
-                        <div class="carousel__content">
-                            <p class="carousel__subtitle">By Fons Heijnsbroek</p>
-                        </div>
-                    </div>
-                    <div class="carousel__slide slide" data-slide>
-                        <picture>
-                            <img src="paintings/p2.jpg" alt="Taideworkshop kuva 2" class="carousel__image">
-                        </picture>
-                        <div class="carousel__content">
-                            <p class="carousel__subtitle">By Maija Poppanen</p>
-                        </div>
-                    </div>
-                    <div class="carousel__slide slide" data-slide>
-                        <picture>
-                            <img src="paintings/p3.jpg" alt="Taideworkshop kuva 2" class="carousel__image">
-                        </picture>
-                        <div class="carousel__content">
-                            <p class="carousel__subtitle">By Mikko Mallikas</p>
-                        </div>
-                    </div>
-                    <div class="carousel__slide slide" data-slide>
-                        <picture>
-                            <img src="paintings/p3.jpg" alt="Taideworkshop kuva 2" class="carousel__image">
-                        </picture>
-                        <div class="carousel__content">
-                            <p class="carousel__subtitle">By Kiira Korpi</p>
-                        </div>
-                    </div>
+        <!-- Hero Card Deck Section -->
+        <section id="hero" class="hero" aria-roledescription="carousel" aria-label="Taideteosten korttipakka">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Solidarity Project</h1>
+                    <p class="hero__subtitle">Suomalainen taideworkshop luovuudelle, leikkisyydelle ja itseilmaisulle</p>
                 </div>
                 
-                <!-- Carousel Controls -->
-                <button class="carousel__btn carousel__btn--prev" data-carousel-prev aria-label="Edellinen kuva">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                <button class="carousel__btn carousel__btn--next" data-carousel-next aria-label="Seuraava kuva">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                
-                <!-- Dot Indicators -->
-                <div class="carousel__indicators" data-carousel-indicators aria-label="Kuvavalitsin">
-                    <button class="carousel__dot carousel__dot--active" data-carousel-dot="0" aria-label="Kuva 1"></button>
-                    <button class="carousel__dot" data-carousel-dot="1" aria-label="Kuva 2"></button>
-                    <button class="carousel__dot" data-carousel-dot="2" aria-label="Kuva 3"></button>
-                    <button class="carousel__dot" data-carousel-dot="3" aria-label="Kuva 4"></button>
+                <div class="card-deck" data-carousel>
+                    <div class="card-deck__container" data-carousel-track>
+                        <!-- TODO: Replace with actual artwork images -->
+                        <div class="card-deck__card slide" data-slide>
+                            <div class="card-deck__image-wrapper">
+                                <img src="paintings/p1.jpg" alt="Taideworkshop kuva 1" class="card-deck__image">
+                            </div>
+                            <div class="card-deck__info">
+                                <p class="card-deck__artist">By Fons Heijnsbroek</p>
+                            </div>
+                        </div>
+                        <div class="card-deck__card slide" data-slide>
+                            <div class="card-deck__image-wrapper">
+                                <img src="paintings/p2.jpg" alt="Taideworkshop kuva 2" class="card-deck__image">
+                            </div>
+                            <div class="card-deck__info">
+                                <p class="card-deck__artist">By Maija Poppanen</p>
+                            </div>
+                        </div>
+                        <div class="card-deck__card slide" data-slide>
+                            <div class="card-deck__image-wrapper">
+                                <img src="paintings/p3.jpg" alt="Taideworkshop kuva 3" class="card-deck__image">
+                            </div>
+                            <div class="card-deck__info">
+                                <p class="card-deck__artist">By Mikko Mallikas</p>
+                            </div>
+                        </div>
+                        <div class="card-deck__card slide" data-slide>
+                            <div class="card-deck__image-wrapper">
+                                <img src="paintings/p4.jpg" alt="Taideworkshop kuva 4" class="card-deck__image">
+                            </div>
+                            <div class="card-deck__info">
+                                <p class="card-deck__artist">By Kiira Korpi</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card Deck Controls -->
+                    <div class="card-deck__controls">
+                        <button class="card-deck__btn card-deck__btn--prev" data-carousel-prev aria-label="Edellinen kortti">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="card-deck__btn card-deck__btn--next" data-carousel-next aria-label="Seuraava kortti">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Card Indicators -->
+                    <div class="card-deck__indicators" data-carousel-indicators aria-label="Korttivelitsin">
+                        <button class="card-deck__dot card-deck__dot--active" data-carousel-dot="0" aria-label="Kortti 1"></button>
+                        <button class="card-deck__dot" data-carousel-dot="1" aria-label="Kortti 2"></button>
+                        <button class="card-deck__dot" data-carousel-dot="2" aria-label="Kortti 3"></button>
+                        <button class="card-deck__dot" data-carousel-dot="3" aria-label="Kortti 4"></button>
+                    </div>
                 </div>
-            </div>
-            <div class="hero__scroll-indicator" aria-hidden="true">
-                <span class="hero__scroll-text">Vieritä alas</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 13L12 18L17 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
             </div>
         </section>
 
@@ -145,7 +148,7 @@
                     <article class="values__card">
                         <div class="values__icon" aria-hidden="true">🤹‍♂️</div>
                         <blockquote class="values__quote">
-                            <p>Taide ei ole vakavaa – se on hauskaa, inspiroivaa ja täynnä iloa! Haluamme kannustaa kokeilemaan, hulluttelemaan ja unohtamaan "oikeat" ja "väärät" tavat tehdä. Meidän työpajoissamme kaikki on mahdollista: värit leviävät, muodot muuttuvat ja ideat syntyvät hetkessä. Tärkeintä on tekemisen ilo!</p>
+                            <p>Taide ei ole vakavaa - se on hauskaa, inspiroivaa ja täynnä iloa! Haluamme kannustaa kokeilemaan, hulluttelemaan ja unohtamaan "oikeat" ja "väärät" tavat tehdä. Meidän työpajoissamme kaikki on mahdollista: värit leviävät, muodot muuttuvat ja ideat syntyvät hetkessä. Tärkeintä on tekemisen ilo!</p>
                             <cite class="values__cite">Leikkisyys</cite>
                         </blockquote>
                     </article>
@@ -204,39 +207,10 @@
         <section id="team" class="team">
             <div class="container">
                 <h2 class="team__title">Tapaa tiimimme</h2>
-                <div class="team__grid">
-                    <!-- TODO: Replace with actual team member photos and information -->
-                    <article class="team__member">
-                        <div class="team__avatar" style="background-color: var(--pink-mid);" aria-hidden="true">
-                            <span class="team__initials">AK</span>
+                <div class="team__picturespace">
+                        <div class="team__picture">
+                            <img src="https://picsum.photos/300/300?random=10" alt="Placeholder - Tiimimme" class="team__picture" loading="lazy">
                         </div>
-                        <h3 class="team__member-name">Anna Korhonen</h3>
-                        <p class="team__member-role">Perustaja & Taiteellinen johtaja</p>
-                    </article>
-                    
-                    <article class="team__member">
-                        <div class="team__avatar" style="background-color: var(--blue-mist);" aria-hidden="true">
-                            <span class="team__initials">ML</span>
-                        </div>
-                        <h3 class="team__member-name">Mikael Lindström</h3>
-                        <p class="team__member-role">Workshop-ohjaaja</p>
-                    </article>
-                    
-                    <article class="team__member">
-                        <div class="team__avatar" style="background-color: var(--green-light);" aria-hidden="true">
-                            <span class="team__initials">SV</span>
-                        </div>
-                        <h3 class="team__member-name">Sofia Virtanen</h3>
-                        <p class="team__member-role">Yhteisömanageri</p>
-                    </article>
-                    
-                    <article class="team__member">
-                        <div class="team__avatar" style="background-color: var(--fuchsia);" aria-hidden="true">
-                            <span class="team__initials">JH</span>
-                        </div>
-                        <h3 class="team__member-name">Jukka Hakala</h3>
-                        <p class="team__member-role">Keramiikka-asiantuntija</p>
-                    </article>
                 </div>
             </div>
         </section>
@@ -248,7 +222,7 @@
             <div class="footer__content">
                 <div class="footer__logo">
                     <!-- TODO: Replace with actual logo SVG -->
-                    <img src="logo-placeholder.svg" alt="Solidarity Project – logo placeholder" class="footer__logo-img">
+                    <img src="logo-placeholder.svg" alt="Solidarity Project - logo placeholder" class="footer__logo-img">
                 </div>
                 <div class="footer__info">
                     <p class="footer__copyright">&copy; 2024 Solidarity Project. Kaikki oikeudet pidätetään.</p>
