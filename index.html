@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solidarity Project - Suomalainen taideworkshop</title>
-    <meta name="description" content="Solidarity Project on suomalainen taideworkshop, joka kannustaa luovuuteen, leikkisyyteen ja itseilmaisuun. Liity mukaan!">
+    <title>Solidaariset nuoret</title>
+    <meta name="description" content="Solidaariset nuoret on hyväntekeväisyysprojekti, joka kannustaa nuoria luovuuteen, leikkisyyteen ja itseilmaisuun. Liity mukaan!">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +15,8 @@
         <div class="header__container">
             <div class="header__logo">
                 <!-- TODO: Replace with actual logo SVG -->
-                <a href="#hero" aria-label="Solidarity Project – Etusivu">
-                    <img src="logo-placeholder.svg" alt="Solidarity Project – logo placeholder" class="header__logo-img">
+                <a href="#hero" aria-label="Solidaariset nuoret - Etusivu">
+                    <img src="logo-placeholder.svg" alt="Solidaariset nuoret – logo placeholder" class="header__logo-img">
                 </a>
             </div>
             <nav class="header__nav" aria-label="Päänavigaatio">
@@ -46,39 +46,7 @@
                 
                 <div class="card-deck" data-carousel>
                     <div class="card-deck__container" data-carousel-track>
-                        <!-- TODO: Replace with actual artwork images -->
-                        <div class="card-deck__card slide" data-slide>
-                            <div class="card-deck__image-wrapper">
-                                <img src="paintings/p1.jpg" alt="Taideworkshop kuva 1" class="card-deck__image">
-                            </div>
-                            <div class="card-deck__info">
-                                <p class="card-deck__artist">By Fons Heijnsbroek</p>
-                            </div>
-                        </div>
-                        <div class="card-deck__card slide" data-slide>
-                            <div class="card-deck__image-wrapper">
-                                <img src="paintings/p2.jpg" alt="Taideworkshop kuva 2" class="card-deck__image">
-                            </div>
-                            <div class="card-deck__info">
-                                <p class="card-deck__artist">By Maija Poppanen</p>
-                            </div>
-                        </div>
-                        <div class="card-deck__card slide" data-slide>
-                            <div class="card-deck__image-wrapper">
-                                <img src="paintings/p3.jpg" alt="Taideworkshop kuva 3" class="card-deck__image">
-                            </div>
-                            <div class="card-deck__info">
-                                <p class="card-deck__artist">By Mikko Mallikas</p>
-                            </div>
-                        </div>
-                        <div class="card-deck__card slide" data-slide>
-                            <div class="card-deck__image-wrapper">
-                                <img src="paintings/p4.jpg" alt="Taideworkshop kuva 4" class="card-deck__image">
-                            </div>
-                            <div class="card-deck__info">
-                                <p class="card-deck__artist">By Kiira Korpi</p>
-                            </div>
-                        </div>
+                        <!-- Cards will be dynamically loaded here by carousel.js -->
                     </div>
                     
                     <!-- Card Deck Controls -->
@@ -95,13 +63,6 @@
                         </button>
                     </div>
                     
-                    <!-- Card Indicators -->
-                    <div class="card-deck__indicators" data-carousel-indicators aria-label="Korttivelitsin">
-                        <button class="card-deck__dot card-deck__dot--active" data-carousel-dot="0" aria-label="Kortti 1"></button>
-                        <button class="card-deck__dot" data-carousel-dot="1" aria-label="Kortti 2"></button>
-                        <button class="card-deck__dot" data-carousel-dot="2" aria-label="Kortti 3"></button>
-                        <button class="card-deck__dot" data-carousel-dot="3" aria-label="Kortti 4"></button>
-                    </div>
                 </div>
             </div>
         </section>
@@ -113,12 +74,11 @@
                     <h2 class="about__title">Tietoa projektista</h2>
                     <!-- TODO: Replace with actual project description -->
                     <p class="about__text lead">
-                        Solidarity Project on suomalainen taideworkshop, joka yhdistää luovuuden, leikkisyyden ja itseilmaisun. 
-                        Uskomme, että jokainen on luova – tarvitaan vain oikea ympäristö ja rohkeus tarttua kynään tai siveltimeen.
+                        Solidaariset nuoret on hyväntekeväisyysprojekti, joka kannustaa nuoria luovuuteen, leikkisyyteen ja itseilmaisuun.
                     </p>
                     <p class="about__text">
                         Työpajoissamme luomme turvallisen tilan, jossa voit kokeilla, erehtyä ja löytää oman tapasi tehdä taidetta. 
-                        Ei ole yhtä oikeaa tapaa – on vain sinun tapasi, ja se on arvokas.
+                        Ei ole yhtä oikeaa tapaa - on vain sinun tapasi, ja se on arvokas.
                     </p>
                 </div>
                 
@@ -207,10 +167,8 @@
         <section id="team" class="team">
             <div class="container">
                 <h2 class="team__title">Tapaa tiimimme</h2>
-                <div class="team__picturespace">
-                        <div class="team__picture">
-                            <img src="https://picsum.photos/300/300?random=10" alt="Placeholder - Tiimimme" class="team__picture" loading="lazy">
-                        </div>
+                <div class="team__image-container">
+                    <img src="https://picsum.photos/800/500?random=10" alt="Solidarity Project tiimi" class="team__image" loading="lazy">
                 </div>
             </div>
         </section>
