@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 </head>
 <body>
     <!-- Fixed Header -->
@@ -16,7 +17,7 @@
             <div class="header__logo">
                 <!-- TODO: Replace with actual logo SVG -->
                 <a href="#hero" aria-label="Solidaariset nuoret - Etusivu">
-                    <img src="logo-placeholder.svg" alt="Solidaariset nuoret – logo placeholder" class="header__logo-img">
+                    <img src="other_images/solidarity_logo.png" alt="Solidaariset nuoret – logo placeholder" class="header__logo-img">
                 </a>
             </div>
             <nav class="header__nav" aria-label="Päänavigaatio">
@@ -28,7 +29,6 @@
                 <ul class="header__nav-list">
                     <li><a href="#about" class="header__nav-link">Tietoa</a></li>
                     <li><a href="#values" class="header__nav-link">Arvot</a></li>
-                    <li><a href="#workshops" class="header__nav-link">Työpajat</a></li>
                     <li><a href="#team" class="header__nav-link">Tiimi</a></li>
                 </ul>
             </nav>
@@ -71,14 +71,14 @@
         <section id="about" class="about">
             <div class="container">
                 <div class="about__content">
-                    <h2 class="about__title">Tietoa projektista</h2>
                     <!-- TODO: Replace with actual project description -->
                     <p class="about__text lead">
-                        Solidaariset nuoret on hyväntekeväisyysprojekti, joka kannustaa nuoria luovuuteen, leikkisyyteen ja itseilmaisuun.
+                      Solidaaristen nuorten virtuaalitaidenäyttely kokoaa yhteen vuosien 2024-2025 aikana järjestettyjen nuorten maksuttomien taidetyöpajojen teoksia. Työpajat järjestettiin osana Euroopan solidaarisuusjoukkojen solidaarisuushanketta, jossa nuoret toimivat yhdessä heille tärkeiden asioiden edistämiseksi. Näyttelyssä esillä olevat teokset heijastavat nuorten näkemyksiä erilaisista heille merkityksellisistä aiheista, kuten ystävyydestä, tulevaisuudesta ja luonnosta.
                     </p>
                     <p class="about__text">
-                        Työpajoissamme luomme turvallisen tilan, jossa voit kokeilla, erehtyä ja löytää oman tapasi tehdä taidetta. 
-                        Ei ole yhtä oikeaa tapaa - on vain sinun tapasi, ja se on arvokas.
+                      Solidaarisuushankkeen taidetyöpajat on toteutettu kuuden tamperelaisen nuoren voimin toisille nuorille. Pyrimme hankkeessamme taiteen ja yhdessä tekemisen keinoin edistämään nuorten osallisuutta, yhdenvertaisuutta sekä luomaan harrastusmahdollisuuksia. Hankkeen toteutuksessa on huomioitu myös kestävä kehitys ja pyrimme hyödyntämään kierrätysmateriaaleja sekä ekologisia työvälineitä toiminnassamme. 
+
+                      Idea taidetyöpaja-toimintaan on kummunnut omista huomioistamme ja halustamme vaikuttaa nuorten hyvinvointiin. Virtuaalinäyttely toimii hankkeemme taiteellisena lopputuloksena sekä todisteena siitä, miten taide voi yhdistää, avartaa ja koskettaa.
                     </p>
                 </div>
                 
@@ -88,6 +88,9 @@
                 </svg>
                 <svg class="about__splatter about__splatter--2 blob--rotate" style="--deg: -25deg;" aria-hidden="true">
                     <use href="#paint-splatter-2"></use>
+                </svg>
+                <svg class="about__splatter about__splatter--3 blob--rotate" style="--deg: -25deg;" aria-hidden="true">
+                    <use href="#paint-splatter-3"></use>
                 </svg>
             </div>
         </section>
@@ -124,51 +127,13 @@
             </div>
         </section>
 
-        <!-- Workshops Section -->
-        <section id="workshops" class="workshops">
-            <div class="container">
-                <h2 class="workshops__title">Meidän työpajat</h2>
-                <div class="workshops__grid">
-                    <!-- TODO: Replace with actual workshop images and descriptions -->
-                    <article class="workshops__card">
-                        <div class="workshops__image-wrapper">
-                            <img src="https://picsum.photos/400/300?random=5" alt="Placeholder – Maalausworkshop" class="workshops__image" loading="lazy">
-                        </div>
-                        <div class="workshops__content">
-                            <h3 class="workshops__card-title">Maalausworkshop</h3>
-                            <p class="workshops__card-text">Tutustu värien maailmaan ja löydä oma ilmaisusi siveltimen avulla.</p>
-                        </div>
-                    </article>
-                    
-                    <article class="workshops__card">
-                        <div class="workshops__image-wrapper">
-                            <img src="https://picsum.photos/400/300?random=6" alt="Placeholder – Keramiikkaworkshop" class="workshops__image" loading="lazy">
-                        </div>
-                        <div class="workshops__content">
-                            <h3 class="workshops__card-title">Keramiikkaworkshop</h3>
-                            <p class="workshops__card-text">Muotoile savesta uniikkeja teoksia omien käsiesi avulla.</p>
-                        </div>
-                    </article>
-                    
-                    <article class="workshops__card">
-                        <div class="workshops__image-wrapper">
-                            <img src="https://picsum.photos/400/300?random=7" alt="Placeholder – Kollaasi ja mixed media" class="workshops__image" loading="lazy">
-                        </div>
-                        <div class="workshops__content">
-                            <h3 class="workshops__card-title">Kollaasi & Mixed Media</h3>
-                            <p class="workshops__card-text">Yhdistele erilaisia materiaaleja ja tekniikoita rohkeasti.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
 
         <!-- Team Section -->
         <section id="team" class="team">
             <div class="container">
                 <h2 class="team__title">Tapaa tiimimme</h2>
                 <div class="team__image-container">
-                    <img src="https://picsum.photos/800/500?random=10" alt="Solidarity Project tiimi" class="team__image" loading="lazy">
+                    <img src="other_images/solidaariset_ryhma.jpeg" alt="Solidarity Project team" class="team__image" loading="lazy">
                 </div>
             </div>
         </section>
@@ -180,29 +145,18 @@
             <div class="footer__content">
                 <div class="footer__logo">
                     <!-- TODO: Replace with actual logo SVG -->
-                    <img src="logo-placeholder.svg" alt="Solidarity Project - logo placeholder" class="footer__logo-img">
+                    <img src="other_images/eu_cofunded.jpeg" alt="EU Solidarity Project logo" class="footer__logo-img">
                 </div>
                 <div class="footer__info">
                     <p class="footer__copyright">&copy; 2024 Solidarity Project. Kaikki oikeudet pidätetään.</p>
                 </div>
                 <div class="footer__social">
                     <!-- TODO: Add actual social media links -->
-                    <a href="#" class="footer__social-link" aria-label="Instagram">
+                    <a href="https://instagram.com/taidetyopajat_tre" class="footer__social-link" aria-label="Instagram">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2"/>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="footer__social-link" aria-label="Facebook">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="footer__social-link" aria-label="YouTube">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" stroke="currentColor" stroke-width="2"/>
-                            <polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/>
                         </svg>
                     </a>
                 </div>
@@ -222,6 +176,11 @@
                 <path d="M40 5 C65 10, 85 30, 85 50 C85 70, 65 85, 45 85 C25 85, 5 65, 5 45 C5 25, 25 5, 40 5 Z" fill="var(--green-light)" opacity="0.8"/>
                 <circle cx="60" cy="25" r="6" fill="var(--green-dark)" opacity="0.6"/>
                 <circle cx="30" cy="65" r="4" fill="var(--blue-mist)" opacity="0.7"/>
+            </g>
+            <g id="paint-splatter-3">
+                <path d="M55 15 C75 20, 90 40, 85 60 C80 80, 60 90, 40 85 C20 80, 10 60, 15 40 C20 20, 40 10, 55 15 Z" fill="var(--blue-mist)" opacity="0.8"/>
+                <circle cx="30" cy="35" r="7" fill="var(--cream)" opacity="0.7"/>
+                <circle cx="70" cy="65" r="6" fill="var(--green-light)" opacity="0.6"/>
             </g>
         </defs>
     </svg>

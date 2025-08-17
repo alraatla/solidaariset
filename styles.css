@@ -424,13 +424,13 @@ p {
 .card-deck__image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform var(--transition);
 }
 
 /* Hover effects for individual cards */
 .card-deck__card:hover .card-deck__image {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .card-deck__card:hover {
@@ -652,6 +652,12 @@ p {
   right: 8%;
 }
 
+
+.about__splatter--3 {
+  bottom: 30%;
+  left: 15%;
+}
+
 @media (max-width: 768px) {
   .about {
     padding: var(--space-xl) 0;
@@ -748,81 +754,6 @@ p {
   }
 }
 
-/* ========================================
-   WORKSHOPS SECTION
-   ======================================== */
-
-.workshops {
-  padding: var(--space-xxl) 0;
-  background-color: var(--pink-light);
-}
-
-.workshops__title {
-  text-align: center;
-  color: var(--green-dark);
-  margin-bottom: var(--space-xl);
-}
-
-.workshops__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-lg);
-}
-
-.workshops__card {
-  background-color: var(--white);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: all var(--transition);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.workshops__card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--hover-shadow);
-}
-
-.workshops__image-wrapper {
-  position: relative;
-  overflow: hidden;
-  height: 200px;
-}
-
-.workshops__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition);
-}
-
-.workshops__card:hover .workshops__image {
-  transform: scale(1.05);
-}
-
-.workshops__content {
-  padding: var(--space-lg);
-}
-
-.workshops__card-title {
-  color: var(--green-dark);
-  margin-bottom: var(--space-sm);
-}
-
-.workshops__card-text {
-  color: var(--black);
-  margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-  .workshops {
-    padding: var(--space-xl) 0;
-  }
-  
-  .workshops__grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-}
 
 /* ========================================
    TEAM SECTION
@@ -830,7 +761,7 @@ p {
 
 .team {
   padding: var(--space-xxl) 0;
-  background-color: var(--white);
+  background-color: var(--pink-light);
 }
 
 .team__title {
@@ -889,7 +820,6 @@ p {
 .footer__logo-img {
   height: 30px;
   width: auto;
-  filter: brightness(0) invert(1);
 }
 
 .footer__copyright {
