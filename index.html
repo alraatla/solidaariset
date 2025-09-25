@@ -27,7 +27,6 @@
                 </button>
                 <ul class="header__nav-list">
                     <li><a href="#about" class="header__nav-link">Tietoa</a></li>
-                    <li><a href="#values" class="header__nav-link">Arvot</a></li>
                     <li><a href="#team" class="header__nav-link">Tiimi</a></li>
                 </ul>
             </nav>
@@ -40,7 +39,6 @@
             <div class="container">
                 <div class="hero__content">
                     <h1 class="hero__title">Solidaariset nuoret virtuaalitaidenäyttely</h1>
-                    <p class="hero__subtitle">Suomalainen taideworkshop luoville nuorille</p>
                 </div>
                 
                 <div class="card-deck" data-carousel>
@@ -70,6 +68,12 @@
         <section id="about" class="about">
             <div class="container">
                 <div class="about__content">
+                  
+                <div style="position:relative; margin-left: -20rem;">
+                  <div style="position:absolute; top:10; left:0; width:170px; max-width:30%; border-radius:12px; overflow:hidden; z-index:-1;">
+                    <img src="other_images/art_is_hot_hand.png" alt="Art is hot hand" style="display:block; width:100%; height:auto;">
+                  </div>
+                </div>
                     <p class="about__text lead">
                       Solidaaristen nuorten virtuaalitaidenäyttely kokoaa yhteen vuosien 2024-2025 aikana järjestettyjen nuorten maksuttomien taidetyöpajojen teoksia. Työpajat järjestettiin osana Euroopan solidaarisuusjoukkojen solidaarisuushanketta, jossa nuoret toimivat yhdessä heille tärkeiden asioiden edistämiseksi. Näyttelyssä esillä olevat teokset heijastavat nuorten näkemyksiä erilaisista heille merkityksellisistä aiheista, kuten ystävyydestä, tulevaisuudesta ja luonnosta.
                     </p>
@@ -79,7 +83,8 @@
                       Idea taidetyöpaja-toimintaan on kummunnut omista huomioistamme ja halustamme vaikuttaa nuorten hyvinvointiin. Virtuaalinäyttely toimii hankkeemme taiteellisena lopputuloksena sekä todisteena siitä, miten taide voi yhdistää, avartaa ja koskettaa.
                     </p>
                 </div>
-                
+
+                                
                 <!-- Decorative paint splatters -->
                 <svg class="about__splatter about__splatter--1 blob--rotate" style="--deg: 15deg;" aria-hidden="true">
                     <use href="#paint-splatter-1"></use>
@@ -90,6 +95,7 @@
                 <svg class="about__splatter about__splatter--3 blob--rotate" style="--deg: -25deg;" aria-hidden="true">
                     <use href="#paint-splatter-3"></use>
                 </svg>
+
             </div>
         </section>
 
@@ -160,7 +166,7 @@
         </div>
     </footer>
 
-    <!-- SVG Definitions for reusable shapes -->
+    <!-- SVG Definitions for reusable shapes-->
     <svg style="display: none;" aria-hidden="true">
         <defs>
             <g id="paint-splatter-1">
@@ -179,7 +185,7 @@
                 <circle cx="70" cy="65" r="6" fill="var(--green-light)" opacity="0.6"/>
             </g>
         </defs>
-    </svg>
+    </svg> 
 
     <script src="carousel.js"></script>
 </body>

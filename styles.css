@@ -28,7 +28,7 @@
   
   /* Layout */
   --container-max: 1200px;
-  --header-height: 80px;
+  --header-height: 130px;
   
   /* Motion */
   --transition: 300ms ease-out;
@@ -94,7 +94,7 @@ select {
   font-display: swap;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, li {
   font-family: var(--font-heading);
   font-weight: bold;
   line-height: 1.2;
@@ -258,7 +258,7 @@ p {
 }
 
 .header__logo-img {
-  height: 40px;
+  height: calc(var(--header-height) - 20px);
   width: auto;
 }
 
@@ -644,18 +644,18 @@ p {
 
 .about__splatter--1 {
   top: 10%;
-  left: 5%;
+  right: 10%;
 }
 
 .about__splatter--2 {
   bottom: 15%;
-  right: 8%;
+  right: 5%;
 }
 
 
 .about__splatter--3 {
   bottom: 30%;
-  left: 15%;
+  right: 15%;
 }
 
 @media (max-width: 768px) {
