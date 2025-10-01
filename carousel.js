@@ -847,15 +847,23 @@ document.addEventListener('DOMContentLoaded', () => {
 async function loadAndBuildCarousel() {
   const carouselElement = document.querySelector('[data-carousel]');
   const track = document.querySelector('[data-carousel-track]');
+  const archiveElement = document.querySelector('[data-painting-archive]');
+  const archiveSection = document.querySelector('.painting-archive');
+  const archivePanel = document.querySelector('[data-painting-archive-panel]');
+  const archiveToggle = document.querySelector('[data-painting-archive-toggle]');
 
   if (!carouselElement || !track) {
     console.error('Carousel elements not found');
+
     return;
   }
 
   try {
 
-    // Clear existing dummy cards
+    if (archiveElement) {
+      archiveElement.innerHTML = '';
+    }
+
     track.innerHTML = '';
 
     // Create and append new cards
@@ -885,11 +893,47 @@ async function loadAndBuildCarousel() {
       });
       
       track.appendChild(card);
+
+      if (archiveElement) {
+        const archiveItem = document.createElement('article');
+        archiveItem.className = 'painting-archive__item';
+
+        archiveItem.innerHTML = `
+          <img src="${imageUrl}" alt="${painting.title || 'Taideteos'}" class="painting-archive__image" loading="lazy" onclick="window.open('${imageUrl}', '_blank')">
+          <div class="painting-archive__meta">
+            <strong>${painting.title || 'Nimetön'}</strong>
+            <span>${painting.painter || 'Tekijä tuntematon'}</span>
+            ${painting.description ? `<span>${painting.description}</span>` : ''	}
+          </div>
+        `;
+
+        archiveElement.appendChild(archiveItem);
+      }
     });
 
     // Initialize the carousel AFTER the cards have been added
     if (carouselElement) {
       new CardDeck(carouselElement);
+    }
+
+    if (archiveSection) {
+      archiveSection.removeAttribute('aria-hidden');
+      archiveSection.style.display = 'block';
+    }
+
+    if (archiveToggle && archivePanel) {
+      archiveToggle.addEventListener('click', () => {
+        const isExpanded = archiveToggle.getAttribute('aria-expanded') === 'true';
+        archiveToggle.setAttribute('aria-expanded', (!isExpanded).toString());
+
+        if (isExpanded) {
+          archivePanel.setAttribute('hidden', '');
+          archivePanel.removeAttribute('data-open');
+        } else {
+          archivePanel.removeAttribute('hidden');
+          archivePanel.setAttribute('data-open', 'true');
+        }
+      });
     }
 
     // Handle reduced motion preference
