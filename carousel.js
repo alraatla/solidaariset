@@ -378,7 +378,6 @@ class CardDeck {
     
     this.setupEventListeners();
     this.updateCardPositions();
-    this.updateIndicators();
     this.startAutoplay();
     
     // Set initial ARIA attributes
@@ -447,7 +446,6 @@ class CardDeck {
     
     // Animate and update positions
     this.updateCardPositions();
-    this.updateIndicators();
     this.updateAriaLabels();
     
     setTimeout(() => {
@@ -465,7 +463,6 @@ class CardDeck {
     
     // Animate and update positions
     this.updateCardPositions();
-    this.updateIndicators();
     this.updateAriaLabels();
     
     setTimeout(() => {
@@ -478,7 +475,6 @@ class CardDeck {
     
     this.currentSlide = targetIndex;
     this.updateCardPositions();
-    this.updateIndicators();
     this.updateAriaLabels();
   }
   
@@ -511,13 +507,6 @@ class CardDeck {
     });
   }
   
-  updateIndicators() {
-    this.dots.forEach((dot, index) => {
-      const isActive = index === this.currentSlide;
-      dot.classList.toggle('card-deck__dot--active', isActive);
-      dot.setAttribute('aria-pressed', isActive.toString());
-    });
-  }
   
   updateAriaLabels() {
     this.slides.forEach((slide, index) => {
@@ -688,6 +677,59 @@ class CardDeck {
   }
 }
 
+// Header scroll behavior for mobile
+class HeaderScrollBehavior {
+  constructor() {
+    this.header = document.querySelector('.header');
+    this.lastScrollY = window.scrollY;
+    this.scrollThreshold = -10; // Minimum scroll distance to trigger hide/show
+    this.isScrolling = false;
+    
+    this.init();
+  }
+  
+  init() {
+    if (!this.header) return;
+    
+    // Throttle scroll events for better performance
+    window.addEventListener('scroll', () => {
+      if (!this.isScrolling) {
+        window.requestAnimationFrame(() => {
+          this.handleScroll();
+          this.isScrolling = false;
+        });
+        this.isScrolling = true;
+      }
+    });
+  }
+  
+  handleScroll() {
+    const currentScrollY = window.scrollY;
+    const scrollDifference = Math.abs(currentScrollY - this.lastScrollY);
+    
+    // Only act if we've scrolled enough to avoid jitter
+    if (scrollDifference < this.scrollThreshold) return;
+    
+    // Check if we're on mobile (same breakpoint as CSS)
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+      if (currentScrollY > this.lastScrollY) {
+        // Scrolling down and past initial scroll - hide header
+        this.header.classList.add('header--hidden');
+      } else if (currentScrollY < this.lastScrollY) {
+        // Scrolling up - show header
+        this.header.classList.remove('header--hidden');
+      }
+    } else {
+      // On desktop, always show header
+      this.header.classList.remove('header--hidden');
+    }
+    
+    this.lastScrollY = currentScrollY;
+  }
+}
+
 // Mobile navigation toggle functionality
 class MobileNav {
   constructor() {
@@ -792,6 +834,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize mobile navigation
   new MobileNav();
   
+  // Initialize header scroll behavior
+  new HeaderScrollBehavior();
+  
   // Initialize smooth scrolling
   initSmoothScrolling();
   
@@ -833,6 +878,12 @@ async function loadAndBuildCarousel() {
           <h3 class="card-deck__title">${painting.title}</h3>
         </div>
       `;
+      
+      // Add click event to open image in new tab
+      card.addEventListener('click', () => {
+        window.open(imageUrl, '_blank');
+      });
+      
       track.appendChild(card);
     });
 
